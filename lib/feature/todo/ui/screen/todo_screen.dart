@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/app_provider.dart';
 import 'package:todo_list/feature/todo/domain/entity/task.dart';
+import 'package:todo_list/feature/todo/ui/bloc/task_bloc.dart';
 import 'package:todo_list/feature/todo/ui/components/feedback/add_task_dialog.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late final TaskBloc taskBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    taskBloc = AppProvider.of(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final taskBloc = AppProvider.of(context);
-
-    void _showAddTaskDialog() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AddTaskDialog(onSend: (value) async {
-            await taskBloc.addTask(
-              value.title,
-              value.description,
-            );
-          });
-        },
-      );
-    }
-
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -87,6 +85,20 @@ class HomeScreen extends StatelessWidget {
           child: const Icon(Icons.add),
         ),
       ),
+    );
+  }
+
+  void _showAddTaskDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AddTaskDialog(onSend: (value) async {
+          await taskBloc.addTask(
+            value.title,
+            value.description,
+          );
+        });
+      },
     );
   }
 }
