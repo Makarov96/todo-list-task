@@ -1,0 +1,35 @@
+name: Flutter CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  flutter-ci:
+    name: Flutter Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "stable"
+          cache: true # Enables Flutter cache
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Run Linter
+        run: flutter analyze
+
+      - name: Run Tests
+        run: flutter test
