@@ -3,7 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
-import 'package:todo_list/core/envs/env.dart';
+import 'package:todo_list/core/env/env.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
