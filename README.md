@@ -88,7 +88,7 @@ Below is a simplified view of the folder layout:
 
 2.  **Navigate to the repo**:
     ```bash
-    cd todo_list
+    cd todo-list-task
     ```
 3.  **Install depedencies**:
     ```bash
