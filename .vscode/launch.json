@@ -9,21 +9,27 @@
             "name": "todo_list",
             "request": "launch",
             "type": "dart",
-            "args": []
+            "args": [
+                "--dart-define-from-file=envs/env.json"
+            ]
         },
         {
             "name": "todo_list (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
-            "args": []
+            "args": [
+                   "--dart-define-from-file=envs/env.json"
+            ]
         },
         {
             "name": "todo_list (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "args": []
+            "args": [
+                   "--dart-define-from-file=envs/env.json"
+            ]
         }
     ]
 }

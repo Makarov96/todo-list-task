@@ -16,7 +16,7 @@ migrate_working_dir/
 *.iml
 *.ipr
 *.lock
-*.plist
+GoogleService-info.plist
 firebase.json
 google-services.json
 *.iws
